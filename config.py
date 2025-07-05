@@ -6,7 +6,7 @@ class Config(BaseSettings):
     # Database configuration
     neo4j_uri: Optional[str] = Field(default="bolt://localhost:7687")
     neo4j_user: Optional[str] = Field(default="neo4j")
-    neo4j_password: Optional[str] = Field(default=None)  # Set via .env file
+    neo4j_password: Optional[str] = Field(default="your passsword")
     
     # Local AI model configuration
     ollama_url: str = Field(default="http://localhost:11434")

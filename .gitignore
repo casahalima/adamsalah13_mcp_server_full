@@ -16,6 +16,17 @@ venv/
 .DS_Store
 .env
 
+# Configuration files with sensitive data
+config_local.py
+config_production.py
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
 #model
 models/
 models/all-MiniLM-L6-v2

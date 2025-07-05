@@ -13,7 +13,7 @@ class Config(BaseSettings):
     ollama_model: Optional[str] = Field(default="llama3.2:latest")
     
     # OpenAI configuration
-    openai_api_key: Optional[str] = Field(default=None)
+    openai_api_key: Optional[str] = Field(default=None)  # Set via .env file
     openai_model: str = Field(default="gpt-4")
     openai_base_url: Optional[str] = Field(default="https://api.openai.com/v1")
     

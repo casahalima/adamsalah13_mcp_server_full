@@ -210,4 +210,8 @@ Streamlit: Displays results to user
 4. **Update Documentation** with concrete examples
 5. **Add Agent Discovery** for dynamic tool registration
 
+## Development Guide
+
+For detailed instructions on adding new agents to this architecture, see **[ADDING_NEW_AGENTS.md](ADDING_NEW_AGENTS.md)**.
+
 This architecture ensures that the agentic pattern is not just a organizational concept, but a fundamental part of how the MCP server operates, while maintaining pure MCP compliance for maximum compatibility and extensibility.

@@ -190,10 +190,15 @@ mcp_server_full/
 
 ### Adding New Agents
 
+For a complete step-by-step guide on adding new agents, see **[ADDING_NEW_AGENTS.md](ADDING_NEW_AGENTS.md)**.
+
+**Quick Overview:**
 1. Create agent file in `agents/` inheriting from `BaseAgent`
-2. Implement the `handle()` method
-3. Add routing logic to `manager.py`
-4. Add tests in `tests/agents/`
+2. Implement `get_tools()` and `handle_tool_call()` methods
+3. Register agent in both `pure_mcp_server.py` and `simple_mcp_host.py`
+4. Add configuration and test your agent
+
+The guide includes complete code examples, best practices, and troubleshooting tips.
 
 ### Adding New Tools
 

@@ -25,3 +25,4 @@ debug*.py
 diagnose*.py
 validate*.py
 *_test.py
+models/all-MiniLM-L6-v2

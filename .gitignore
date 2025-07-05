@@ -14,3 +14,7 @@ venv/
 
 # System files
 .DS_Store
+
+#model
+models/
+models/all-MiniLM-L6-v2

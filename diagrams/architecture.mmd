@@ -1,0 +1,19 @@
+flowchart LR
+  subgraph Clients
+    Claude([Claude Desktop])
+    OpenAI([OpenAI MCP])
+    CLI([CLI Client])
+    Chatbot([Streamlit/Flask Chatbot])
+  end
+  subgraph Adapters & Server
+    OA(OpenAI Shim)
+    CP(Claude Plugin)
+    MCP(MCP JSON-RPC)
+  end
+  Clients -->|OpenAI API| OA
+  Clients -->|Plugin API| CP
+  Clients -->|JSON-RPC| MCP
+  OA & CP & MCP -->|Invoke| Manager(AgentManager)
+  Manager -->|Calls| ToolHandlers[File/Vector/Graph]
+  Manager -->|Calls| Ollama[Local LLM]
+  Manager -->|Returns| Clients

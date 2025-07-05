@@ -1,0 +1,203 @@
+2025-07-04 15:00:25,713 - pure_mcp_server - INFO - Registering agents...
+2025-07-04 15:00:25,756 - agents.openai_agent - INFO - OpenAI client initialized successfully
+2025-07-04 15:00:25,757 - registry - INFO - Registered tool 'openai_chat' from agent 'openai'
+2025-07-04 15:00:25,757 - registry - INFO - Registered tool 'openai_analysis' from agent 'openai'
+2025-07-04 15:00:25,758 - registry - INFO - Registered tool 'openai_completion' from agent 'openai'
+2025-07-04 15:00:25,758 - registry - INFO - Registered tool 'openai_summarize' from agent 'openai'
+2025-07-04 15:00:25,758 - pure_mcp_server - INFO - OpenAI agent registered successfully
+2025-07-04 15:00:25,833 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-07-04 15:00:25,834 - agents.ollama_agent - INFO - Ollama connection successful
+2025-07-04 15:00:25,835 - agents.ollama_agent - INFO - Available models: []
+2025-07-04 15:00:25,835 - agents.ollama_agent - WARNING - Model llama3.2:latest not available. Available models: []
+2025-07-04 15:00:25,835 - agents.ollama_agent - ERROR - No Ollama models available
+2025-07-04 15:00:25,835 - registry - WARNING - Agent ollama is not available - skipping registration
+2025-07-04 15:00:25,835 - pure_mcp_server - INFO - Ollama agent registered successfully
+2025-07-04 15:00:25,835 - agents.file_agent - INFO - File agent initialized with base path: D:\AI Lab\MCP research\mcp_server_full
+2025-07-04 15:00:25,836 - registry - INFO - Registered tool 'file_read' from agent 'file'
+2025-07-04 15:00:25,836 - registry - INFO - Registered tool 'file_write' from agent 'file'
+2025-07-04 15:00:25,836 - registry - INFO - Registered tool 'file_list' from agent 'file'
+2025-07-04 15:00:25,836 - registry - INFO - Registered tool 'file_search' from agent 'file'
+2025-07-04 15:00:25,836 - registry - INFO - Registered tool 'file_info' from agent 'file'
+2025-07-04 15:00:25,836 - registry - INFO - Registered tool 'file_create_directory' from agent 'file'
+2025-07-04 15:00:25,836 - pure_mcp_server - INFO - File agent registered successfully
+2025-07-04 15:00:25,836 - pure_mcp_server - INFO - Agent registration complete: 2 agents, 10 tools
+2025-07-04 15:00:25,837 - pure_mcp_server - INFO - Starting Pure Agentic MCP Server (stdio transport)
+2025-07-04 15:00:25,837 - pure_mcp_server - INFO - Server: Pure Agentic MCP Server v1.0.0
+2025-07-04 15:00:25,837 - pure_mcp_server - INFO - Available agents: ['openai', 'file']
+2025-07-04 15:00:25,837 - pure_mcp_server - INFO - Available tools: ['openai_chat', 'openai_analysis', 'openai_completion', 'openai_summarize', 'file_read', 'file_write', 'file_list', 'file_search', 'file_info', 'file_create_directory']
+2025-07-04 15:03:53,895 - pure_mcp_server - INFO - Pure Agentic MCP Server stopped
+2025-07-04 15:03:53,897 - pure_mcp_server - INFO - Server interrupted
+2025-07-04 15:09:56,852 - pure_mcp_server - INFO - Registering agents...
+2025-07-04 15:09:56,892 - agents.openai_agent - INFO - OpenAI client initialized successfully
+2025-07-04 15:09:56,892 - registry - INFO - Registered tool 'openai_chat' from agent 'openai'
+2025-07-04 15:09:56,893 - registry - INFO - Registered tool 'openai_analysis' from agent 'openai'
+2025-07-04 15:09:56,893 - registry - INFO - Registered tool 'openai_completion' from agent 'openai'
+2025-07-04 15:09:56,893 - registry - INFO - Registered tool 'openai_summarize' from agent 'openai'
+2025-07-04 15:09:56,894 - pure_mcp_server - INFO - OpenAI agent registered successfully
+2025-07-04 15:09:56,971 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-07-04 15:09:56,971 - agents.ollama_agent - INFO - Ollama connection successful
+2025-07-04 15:09:56,972 - agents.ollama_agent - INFO - Available models: []
+2025-07-04 15:09:56,972 - agents.ollama_agent - WARNING - Model llama3.2:latest not available. Available models: []
+2025-07-04 15:09:56,973 - agents.ollama_agent - ERROR - No Ollama models available
+2025-07-04 15:09:56,973 - registry - WARNING - Agent ollama is not available - skipping registration
+2025-07-04 15:09:56,973 - pure_mcp_server - INFO - Ollama agent registered successfully
+2025-07-04 15:09:56,974 - agents.file_agent - INFO - File agent initialized with base path: D:\AI Lab\MCP research\mcp_server_full
+2025-07-04 15:09:56,974 - registry - INFO - Registered tool 'file_read' from agent 'file'
+2025-07-04 15:09:56,974 - registry - INFO - Registered tool 'file_write' from agent 'file'
+2025-07-04 15:09:56,974 - registry - INFO - Registered tool 'file_list' from agent 'file'
+2025-07-04 15:09:56,974 - registry - INFO - Registered tool 'file_search' from agent 'file'
+2025-07-04 15:09:56,974 - registry - INFO - Registered tool 'file_info' from agent 'file'
+2025-07-04 15:09:56,974 - registry - INFO - Registered tool 'file_create_directory' from agent 'file'
+2025-07-04 15:09:56,974 - pure_mcp_server - INFO - File agent registered successfully
+2025-07-04 15:09:56,974 - pure_mcp_server - INFO - Agent registration complete: 2 agents, 10 tools
+2025-07-04 15:09:56,975 - pure_mcp_server - INFO - Starting Pure Agentic MCP Server (stdio transport)
+2025-07-04 15:09:56,975 - pure_mcp_server - INFO - Server: Pure Agentic MCP Server v1.0.0
+2025-07-04 15:09:56,976 - pure_mcp_server - INFO - Available agents: ['openai', 'file']
+2025-07-04 15:09:56,976 - pure_mcp_server - INFO - Available tools: ['openai_chat', 'openai_analysis', 'openai_completion', 'openai_summarize', 'file_read', 'file_write', 'file_list', 'file_search', 'file_info', 'file_create_directory']
+2025-07-04 15:33:09,564 - pure_mcp_server - ERROR - Invalid JSON received: Expecting value: line 1 column 1 (char 0)
+2025-07-04 15:37:52,245 - pure_mcp_server - INFO - Pure Agentic MCP Server stopped
+2025-07-04 15:37:52,247 - pure_mcp_server - INFO - Server interrupted
+2025-07-04 15:56:07,227 - pure_mcp_server - INFO - Registering agents...
+2025-07-04 15:56:07,266 - agents.openai_agent - INFO - OpenAI client initialized successfully
+2025-07-04 15:56:07,267 - registry - INFO - Registered tool 'openai_chat' from agent 'openai'
+2025-07-04 15:56:07,267 - registry - INFO - Registered tool 'openai_analysis' from agent 'openai'
+2025-07-04 15:56:07,267 - registry - INFO - Registered tool 'openai_completion' from agent 'openai'
+2025-07-04 15:56:07,267 - registry - INFO - Registered tool 'openai_summarize' from agent 'openai'
+2025-07-04 15:56:07,268 - pure_mcp_server - INFO - OpenAI agent registered successfully
+2025-07-04 15:56:07,346 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-07-04 15:56:07,346 - agents.ollama_agent - INFO - Ollama connection successful
+2025-07-04 15:56:07,347 - agents.ollama_agent - INFO - Available models: []
+2025-07-04 15:56:07,347 - agents.ollama_agent - WARNING - Model llama3.2:latest not available. Available models: []
+2025-07-04 15:56:07,348 - agents.ollama_agent - ERROR - No Ollama models available
+2025-07-04 15:56:07,348 - pure_mcp_server - INFO - Ollama agent not available - skipping registration
+2025-07-04 15:56:07,348 - agents.file_agent - INFO - File agent initialized with base path: D:\AI Lab\MCP research\mcp_server_full
+2025-07-04 15:56:07,348 - registry - INFO - Registered tool 'file_read' from agent 'file'
+2025-07-04 15:56:07,348 - registry - INFO - Registered tool 'file_write' from agent 'file'
+2025-07-04 15:56:07,348 - registry - INFO - Registered tool 'file_list' from agent 'file'
+2025-07-04 15:56:07,348 - registry - INFO - Registered tool 'file_search' from agent 'file'
+2025-07-04 15:56:07,348 - registry - INFO - Registered tool 'file_info' from agent 'file'
+2025-07-04 15:56:07,349 - registry - INFO - Registered tool 'file_create_directory' from agent 'file'
+2025-07-04 15:56:07,349 - pure_mcp_server - INFO - File agent registered successfully
+2025-07-04 15:56:07,349 - pure_mcp_server - INFO - Agent registration complete: 2 agents, 10 tools
+2025-07-04 15:56:07,362 - pure_mcp_server - INFO - Starting Pure Agentic MCP Server (stdio transport)
+2025-07-04 15:56:07,363 - pure_mcp_server - INFO - Server: Pure Agentic MCP Server v1.0.0
+2025-07-04 15:56:07,363 - pure_mcp_server - INFO - Available agents: ['openai', 'file']
+2025-07-04 15:56:07,363 - pure_mcp_server - INFO - Available tools: ['openai_chat', 'openai_analysis', 'openai_completion', 'openai_summarize', 'file_read', 'file_write', 'file_list', 'file_search', 'file_info', 'file_create_directory']
+2025-07-04 15:59:56,588 - pure_mcp_server - INFO - Pure Agentic MCP Server stopped
+2025-07-04 15:59:56,590 - pure_mcp_server - INFO - Server interrupted
+2025-07-04 16:00:53,129 - pure_mcp_server - INFO - Registering agents...
+2025-07-04 16:00:53,173 - agents.openai_agent - INFO - OpenAI client initialized successfully
+2025-07-04 16:00:53,173 - registry - INFO - Registered tool 'openai_chat' from agent 'openai'
+2025-07-04 16:00:53,174 - registry - INFO - Registered tool 'openai_analysis' from agent 'openai'
+2025-07-04 16:00:53,175 - registry - INFO - Registered tool 'openai_completion' from agent 'openai'
+2025-07-04 16:00:53,175 - registry - INFO - Registered tool 'openai_summarize' from agent 'openai'
+2025-07-04 16:00:53,176 - pure_mcp_server - INFO - OpenAI agent registered successfully
+2025-07-04 16:00:53,252 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-07-04 16:00:53,252 - agents.ollama_agent - INFO - Ollama connection successful
+2025-07-04 16:00:53,253 - agents.ollama_agent - INFO - Available models: []
+2025-07-04 16:00:53,253 - agents.ollama_agent - WARNING - Model llama3.2:latest not available. Available models: []
+2025-07-04 16:00:53,253 - agents.ollama_agent - ERROR - No Ollama models available
+2025-07-04 16:00:53,254 - pure_mcp_server - INFO - Ollama agent not available - skipping registration
+2025-07-04 16:00:53,254 - agents.file_agent - INFO - File agent initialized with base path: D:\AI Lab\MCP research\mcp_server_full
+2025-07-04 16:00:53,254 - registry - INFO - Registered tool 'file_read' from agent 'file'
+2025-07-04 16:00:53,254 - registry - INFO - Registered tool 'file_write' from agent 'file'
+2025-07-04 16:00:53,254 - registry - INFO - Registered tool 'file_list' from agent 'file'
+2025-07-04 16:00:53,254 - registry - INFO - Registered tool 'file_search' from agent 'file'
+2025-07-04 16:00:53,254 - registry - INFO - Registered tool 'file_info' from agent 'file'
+2025-07-04 16:00:53,254 - registry - INFO - Registered tool 'file_create_directory' from agent 'file'
+2025-07-04 16:00:53,254 - pure_mcp_server - INFO - File agent registered successfully
+2025-07-04 16:00:53,254 - pure_mcp_server - INFO - Agent registration complete: 2 agents, 10 tools
+2025-07-04 16:00:53,255 - pure_mcp_server - INFO - Starting Pure Agentic MCP Server (stdio transport)
+2025-07-04 16:00:53,256 - pure_mcp_server - INFO - Server: Pure Agentic MCP Server v1.0.0
+2025-07-04 16:00:53,256 - pure_mcp_server - INFO - Available agents: ['openai', 'file']
+2025-07-04 16:00:53,256 - pure_mcp_server - INFO - Available tools: ['openai_chat', 'openai_analysis', 'openai_completion', 'openai_summarize', 'file_read', 'file_write', 'file_list', 'file_search', 'file_info', 'file_create_directory']
+2025-07-04 16:08:58,708 - pure_mcp_server - INFO - Pure Agentic MCP Server stopped
+2025-07-04 16:08:58,710 - pure_mcp_server - INFO - Server interrupted
+2025-07-04 16:10:59,921 - pure_mcp_server - INFO - Registering agents...
+2025-07-04 16:10:59,968 - agents.openai_agent - INFO - OpenAI client initialized successfully
+2025-07-04 16:10:59,969 - registry - INFO - Registered tool 'openai_chat' from agent 'openai'
+2025-07-04 16:10:59,969 - registry - INFO - Registered tool 'openai_analysis' from agent 'openai'
+2025-07-04 16:10:59,970 - registry - INFO - Registered tool 'openai_completion' from agent 'openai'
+2025-07-04 16:10:59,970 - registry - INFO - Registered tool 'openai_summarize' from agent 'openai'
+2025-07-04 16:10:59,971 - pure_mcp_server - INFO - OpenAI agent registered successfully
+2025-07-04 16:11:00,046 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-07-04 16:11:00,047 - agents.ollama_agent - INFO - Ollama connection successful
+2025-07-04 16:11:00,047 - agents.ollama_agent - INFO - Available models: []
+2025-07-04 16:11:00,047 - agents.ollama_agent - WARNING - Model llama3.2:latest not available. Available models: []
+2025-07-04 16:11:00,048 - agents.ollama_agent - ERROR - No Ollama models available
+2025-07-04 16:11:00,048 - pure_mcp_server - INFO - Ollama agent not available - skipping registration
+2025-07-04 16:11:00,048 - agents.file_agent - INFO - File agent initialized with base path: D:\AI Lab\MCP research\mcp_server_full
+2025-07-04 16:11:00,049 - registry - INFO - Registered tool 'file_read' from agent 'file'
+2025-07-04 16:11:00,049 - registry - INFO - Registered tool 'file_write' from agent 'file'
+2025-07-04 16:11:00,049 - registry - INFO - Registered tool 'file_list' from agent 'file'
+2025-07-04 16:11:00,049 - registry - INFO - Registered tool 'file_search' from agent 'file'
+2025-07-04 16:11:00,049 - registry - INFO - Registered tool 'file_info' from agent 'file'
+2025-07-04 16:11:00,049 - registry - INFO - Registered tool 'file_create_directory' from agent 'file'
+2025-07-04 16:11:00,049 - pure_mcp_server - INFO - File agent registered successfully
+2025-07-04 16:11:00,049 - pure_mcp_server - INFO - Agent registration complete: 2 agents, 10 tools
+2025-07-04 16:11:00,050 - pure_mcp_server - INFO - Starting Pure Agentic MCP Server (stdio transport)
+2025-07-04 16:11:00,050 - pure_mcp_server - INFO - Server: Pure Agentic MCP Server v1.0.0
+2025-07-04 16:11:00,050 - pure_mcp_server - INFO - Available agents: ['openai', 'file']
+2025-07-04 16:11:00,051 - pure_mcp_server - INFO - Available tools: ['openai_chat', 'openai_analysis', 'openai_completion', 'openai_summarize', 'file_read', 'file_write', 'file_list', 'file_search', 'file_info', 'file_create_directory']
+2025-07-04 16:21:40,261 - pure_mcp_server - INFO - Pure Agentic MCP Server stopped
+2025-07-04 16:21:40,262 - pure_mcp_server - INFO - Server interrupted
+2025-07-04 16:21:42,420 - pure_mcp_server - INFO - Registering agents...
+2025-07-04 16:21:42,462 - agents.openai_agent - INFO - OpenAI client initialized successfully
+2025-07-04 16:21:42,463 - registry - INFO - Registered tool 'openai_chat' from agent 'openai'
+2025-07-04 16:21:42,463 - registry - INFO - Registered tool 'openai_analysis' from agent 'openai'
+2025-07-04 16:21:42,464 - registry - INFO - Registered tool 'openai_completion' from agent 'openai'
+2025-07-04 16:21:42,464 - registry - INFO - Registered tool 'openai_summarize' from agent 'openai'
+2025-07-04 16:21:42,464 - pure_mcp_server - INFO - OpenAI agent registered successfully
+2025-07-04 16:21:42,536 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-07-04 16:21:42,537 - agents.ollama_agent - INFO - Ollama connection successful
+2025-07-04 16:21:42,537 - agents.ollama_agent - INFO - Available models: ['llama3.2:latest', 'llama4:latest', 'llama3.1:8b', 'llama3.2:1b', 'codellama:7b-code-q4_K_M', 'mxbai-embed-large:latest', 'brxce/stable-diffusion-prompt-generator:latest', 'llama3.1:latest', 'llama3.2-vision:latest', 'phi3:latest', 'sqlcoder:latest', 'mistral:latest', 'nomic-embed-text:latest', 'phi3:mini', 'codellama:latest', 'falcon:latest', 'llama2:latest', 'llama3.1:8b-instruct-fp16', 'llama3.1-custom:latest']
+2025-07-04 16:21:42,537 - agents.ollama_agent - INFO - Ollama client initialized with model: llama3.2:latest
+2025-07-04 16:21:42,538 - registry - INFO - Registered tool 'ollama_chat' from agent 'ollama'
+2025-07-04 16:21:42,538 - registry - INFO - Registered tool 'ollama_analysis' from agent 'ollama'
+2025-07-04 16:21:42,538 - registry - INFO - Registered tool 'ollama_completion' from agent 'ollama'
+2025-07-04 16:21:42,539 - registry - INFO - Registered tool 'ollama_summarize' from agent 'ollama'
+2025-07-04 16:21:42,539 - pure_mcp_server - INFO - Ollama agent registered successfully
+2025-07-04 16:21:42,539 - agents.file_agent - INFO - File agent initialized with base path: D:\AI Lab\MCP research\mcp_server_full
+2025-07-04 16:21:42,539 - registry - INFO - Registered tool 'file_read' from agent 'file'
+2025-07-04 16:21:42,539 - registry - INFO - Registered tool 'file_write' from agent 'file'
+2025-07-04 16:21:42,539 - registry - INFO - Registered tool 'file_list' from agent 'file'
+2025-07-04 16:21:42,539 - registry - INFO - Registered tool 'file_search' from agent 'file'
+2025-07-04 16:21:42,539 - registry - INFO - Registered tool 'file_info' from agent 'file'
+2025-07-04 16:21:42,539 - registry - INFO - Registered tool 'file_create_directory' from agent 'file'
+2025-07-04 16:21:42,539 - pure_mcp_server - INFO - File agent registered successfully
+2025-07-04 16:21:42,539 - pure_mcp_server - INFO - Agent registration complete: 3 agents, 14 tools
+2025-07-04 16:21:42,540 - pure_mcp_server - INFO - Starting Pure Agentic MCP Server (stdio transport)
+2025-07-04 16:21:42,540 - pure_mcp_server - INFO - Server: Pure Agentic MCP Server v1.0.0
+2025-07-04 16:21:42,541 - pure_mcp_server - INFO - Available agents: ['openai', 'ollama', 'file']
+2025-07-04 16:21:42,541 - pure_mcp_server - INFO - Available tools: ['openai_chat', 'openai_analysis', 'openai_completion', 'openai_summarize', 'ollama_chat', 'ollama_analysis', 'ollama_completion', 'ollama_summarize', 'file_read', 'file_write', 'file_list', 'file_search', 'file_info', 'file_create_directory']
+2025-07-04 16:55:42,038 - pure_mcp_server - INFO - Pure Agentic MCP Server stopped
+2025-07-04 16:55:42,041 - pure_mcp_server - INFO - Server interrupted
+2025-07-04 17:07:27,702 - pure_mcp_server - INFO - Registering agents...
+2025-07-04 17:07:27,804 - agents.openai_agent - INFO - OpenAI client initialized successfully
+2025-07-04 17:07:27,805 - registry - INFO - Registered tool 'openai_chat' from agent 'openai'
+2025-07-04 17:07:27,807 - registry - INFO - Registered tool 'openai_analysis' from agent 'openai'
+2025-07-04 17:07:27,807 - registry - INFO - Registered tool 'openai_completion' from agent 'openai'
+2025-07-04 17:07:27,808 - registry - INFO - Registered tool 'openai_summarize' from agent 'openai'
+2025-07-04 17:07:27,809 - pure_mcp_server - INFO - OpenAI agent registered successfully
+2025-07-04 17:07:27,994 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-07-04 17:07:27,996 - agents.ollama_agent - INFO - Ollama connection successful
+2025-07-04 17:07:27,997 - agents.ollama_agent - INFO - Available models: ['llama3.2:latest', 'llama4:latest', 'llama3.1:8b', 'llama3.2:1b', 'brxce/stable-diffusion-prompt-generator:latest', 'sqlcoder:latest', 'llama3.1:latest', 'phi3:mini', 'codellama:7b-code-q4_K_M', 'codellama:latest', 'falcon:latest', 'llama3.1:8b-instruct-fp16', 'llama3.1-custom:latest', 'nomic-embed-text:latest', 'llama2:latest', 'llama3.2-vision:latest', 'mistral:latest', 'mxbai-embed-large:latest', 'phi3:latest']
+2025-07-04 17:07:27,998 - agents.ollama_agent - INFO - Ollama client initialized with model: llama3.2:latest
+2025-07-04 17:07:27,998 - registry - INFO - Registered tool 'ollama_chat' from agent 'ollama'
+2025-07-04 17:07:27,999 - registry - INFO - Registered tool 'ollama_analysis' from agent 'ollama'
+2025-07-04 17:07:27,999 - registry - INFO - Registered tool 'ollama_completion' from agent 'ollama'
+2025-07-04 17:07:28,000 - registry - INFO - Registered tool 'ollama_summarize' from agent 'ollama'
+2025-07-04 17:07:28,000 - pure_mcp_server - INFO - Ollama agent registered successfully
+2025-07-04 17:07:28,001 - agents.file_agent - INFO - File agent initialized with base path: D:\AI Lab\MCP research\mcp_server_full
+2025-07-04 17:07:28,001 - registry - INFO - Registered tool 'file_read' from agent 'file'
+2025-07-04 17:07:28,002 - registry - INFO - Registered tool 'file_write' from agent 'file'
+2025-07-04 17:07:28,002 - registry - INFO - Registered tool 'file_list' from agent 'file'
+2025-07-04 17:07:28,003 - registry - INFO - Registered tool 'file_search' from agent 'file'
+2025-07-04 17:07:28,003 - registry - INFO - Registered tool 'file_info' from agent 'file'
+2025-07-04 17:07:28,004 - registry - INFO - Registered tool 'file_create_directory' from agent 'file'
+2025-07-04 17:07:28,004 - pure_mcp_server - INFO - File agent registered successfully
+2025-07-04 17:07:28,004 - pure_mcp_server - INFO - Agent registration complete: 3 agents, 14 tools
+2025-07-04 17:07:28,006 - pure_mcp_server - INFO - Starting Pure Agentic MCP Server (stdio transport)
+2025-07-04 17:07:28,007 - pure_mcp_server - INFO - Server: Pure Agentic MCP Server v1.0.0
+2025-07-04 17:07:28,008 - pure_mcp_server - INFO - Available agents: ['openai', 'ollama', 'file']
+2025-07-04 17:07:28,008 - pure_mcp_server - INFO - Available tools: ['openai_chat', 'openai_analysis', 'openai_completion', 'openai_summarize', 'ollama_chat', 'ollama_analysis', 'ollama_completion', 'ollama_summarize', 'file_read', 'file_write', 'file_list', 'file_search', 'file_info', 'file_create_directory']

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "agentic-mcp-server": {
+      "command": "d:\\AI Lab\\MCP research\\mcp_server_full\\.venv\\Scripts\\python.exe",
+      "args": ["d:\\AI Lab\\MCP research\\mcp_server_full\\run_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "d:\\AI Lab\\MCP research\\mcp_server_full"
+      }
+    }
+  }
+}

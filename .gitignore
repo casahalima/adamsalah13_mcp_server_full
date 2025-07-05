@@ -18,3 +18,10 @@ venv/
 #model
 models/
 models/all-MiniLM-L6-v2
+
+# Test and debug files
+*test*.py
+debug*.py
+diagnose*.py
+validate*.py
+*_test.py

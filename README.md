@@ -1,15 +1,32 @@
-# MCP Agentic Server
+# Pure Agentic MCP Server
 
-A modular implementation of the Model Context Protocol (MCP), orchestrating multiple agents and tool handlers.
+A pure implementation of the Model Context Protocol (MCP) following an agentic architecture where all features are exposed as MCP tools through specialized agents.
 
 ## Features
 
-- **Multi-Agent Architecture**: NLU, Query, Validation, and Composition agents
-- **Dual API Support**: Both MCP JSON-RPC and OpenAI-compatible REST APIs
-- **Tool Integration**: File handling, vector operations, and graph database support
-- **Async Processing**: Full async/await support for scalable operations
-- **Graceful Degradation**: Optional components can fail without system failure
-- **Configuration-Driven**: Environment-based configuration with sensible defaults
+- **🤖 Pure Agentic Architecture**: All capabilities (OpenAI, Ollama, File operations) are implemented as agents
+- **🔗 Dual Access Modes**: MCP protocol for Claude Desktop + HTTP endpoints for web/Streamlit UI
+- **⚡ Dynamic Tool Registry**: Agents register their tools automatically at startup
+- **🔧 Modular Design**: Add new agents easily without modifying core server code
+- **📱 Clean Web UI**: Modern Streamlit interface for interactive tool usage
+- **🛡️ Graceful Degradation**: Agents fail independently without affecting the system
+- **🔑 Environment-Based Config**: Secure API key management via environment variables
+
+## Architecture Overview
+
+The server implements a **pure agentic pattern** where:
+
+1. **Agents** encapsulate specific functionality (OpenAI API, Ollama, file operations)
+2. **Registry** manages dynamic tool registration and routing
+3. **MCP Server** provides JSON-RPC protocol compliance for Claude Desktop
+4. **HTTP Host** exposes tools via REST API for web interfaces
+5. **Streamlit UI** provides user-friendly web access to all tools
+
+```
+Claude Desktop ←→ MCP Protocol ←→ Pure MCP Server ←→ Agent Registry ←→ Agents
+                                                                      ↕
+Web Browser    ←→ HTTP API     ←→ Simple MCP Host  ←→ Agent Registry ←→ Agents
+```
 
 ## Quick Start
 
@@ -38,132 +55,163 @@ pip install -r requirements.txt
 
 ### Configuration
 
-Create a `.env` file (optional - defaults are provided):
+Create a `.env` file with your API keys (all optional):
 
 ```env
-# Database configuration (optional)
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=password
+# OpenAI Agent (optional)
+OPENAI_API_KEY=your_openai_api_key_here
 
-# AI Model configuration (optional)
-OLLAMA_URL=http://localhost:11434
-OLLAMA_MODEL=sentence-transformers/all-MiniLM-L6-v2
+# Ollama Agent (optional, uses local Ollama server)
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.2
+
+# File Agent (enabled by default, no config needed)
+# Provides file reading, writing, and listing capabilities
 ```
 
 ### Running the Server
 
-#### Quick Start (All Services)
+#### For Claude Desktop (MCP Protocol)
 
 ```bash
-# Start everything at once
-python startup.py all
+# Start the pure MCP server for Claude Desktop
+python run_mcp_server.py
 ```
 
-This starts:
-- MCP JSON-RPC server (port 9000)
-- OpenAI-compatible API (port 8000) 
-- Streamlit web UI (port 8501)
-
-Access the web interface at: http://localhost:8501
-
-#### Individual Services
-
-```bash
-# Check dependencies and configuration
-python startup.py check
-
-# Run functionality tests
-python startup.py test
-
-# Start MCP JSON-RPC server only (port 9000)
-python startup.py mcp
-
-# Start OpenAI-compatible API server only (port 8000)
-python startup.py openai
-
-# Start Streamlit web UI only (requires server running)
-python startup.py streamlit
+Add to your Claude Desktop config (`claude_desktop_config.json`):
+```json
+{
+  "mcpServers": {
+    "agentic-mcp": {
+      "command": "python",
+      "args": ["run_mcp_server.py"],
+      "cwd": "d:\\AI Lab\\MCP research\\mcp_server_full"
+    }
+  }
+}
 ```
 
-#### Direct Server Commands (Alternative)
+#### For Web Interface (HTTP + Streamlit)
 
 ```bash
-# MCP server only
-python server.py mcp
+# Terminal 1: Start HTTP host for tools
+python simple_mcp_host.py
 
-# OpenAI API server only
-python server.py flask
-
-# Streamlit UI (requires httpx and requests)
+# Terminal 2: Start Streamlit UI  
 streamlit run streamlit_app.py
 ```
 
-### Testing
+Access the web interface at: http://localhost:8501
+
+### Testing Your Setup
 
 ```bash
-# Run all tests
-pytest
+# Test agent registration and tool availability
+python test_quick.py
 
-# Run specific test files
-pytest tests/test_protocol.py -v
+# Test specific agents
+python test_both.py
 
-# Test basic functionality
-python test_functionality.py
-
-# Test with CLI client
-python cli.py
+# Validate server functionality
+python validate_server.py
 ```
+
+## Available Agents & Tools
+
+### 🤖 OpenAI Agent
+**Status**: Available with API key  
+**Tools**:
+- `openai_chat`: Chat completion with GPT models
+- `openai_analysis`: Text analysis and insights
+
+**Setup**: Add `OPENAI_API_KEY` to `.env` file
+
+### 🦙 Ollama Agent  
+**Status**: Available with local Ollama server  
+**Tools**:
+- `ollama_chat`: Chat with local Ollama models
+- `ollama_generate`: Text generation
+
+**Setup**: Install and run Ollama locally, configure `OLLAMA_BASE_URL` and `OLLAMA_MODEL`
+
+### 📁 File Agent
+**Status**: Always available  
+**Tools**:
+- `file_read`: Read file contents
+- `file_write`: Write content to files
+- `file_list`: List directory contents
+
+**Setup**: No configuration needed
 
 ## API Usage
 
-### MCP JSON-RPC API (Port 9000)
+### MCP Protocol (Claude Desktop)
+
+Tools are automatically available in Claude Desktop once the server is configured. Ask Claude to:
+- "Read the contents of file.txt"
+- "Generate text using Ollama"  
+- "Analyze this text with OpenAI"
+
+### HTTP API (Web/Streamlit)
 
 ```bash
-curl -X POST http://localhost:9000/mcp \
+# List available tools
+curl http://localhost:8000/tools
+
+# Call a specific tool
+curl -X POST http://localhost:8000/tools/call \
   -H "Content-Type: application/json" \
   -d '{
-    "id": "1",
-    "method": "nlu/parse",
-    "params": {"text": "Hello world"}
-  }'
-```
-
-### OpenAI-Compatible API (Port 8000)
-
-```bash
-curl -X POST http://localhost:8000/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{
-    "messages": [{"role": "user", "content": "Hello world"}]
+    "tool_name": "file_read",
+    "arguments": {
+      "file_path": "example.txt"
+    }
   }'
 ```
 
 ## Architecture
 
-### Components
+### Core Components
 
-- **`config.py`**: Configuration management using Pydantic
-- **`protocol.py`**: MCP protocol models (Request, Response, Tool)
-- **`agents/`**: Specialized processing agents
-  - `nlu.py`: Natural Language Understanding
-  - `query.py`: Data retrieval and search
-  - `validation.py`: Input validation and verification
-  - `composition.py`: Response generation and formatting
-- **`tools/`**: External tool handlers
-  - `file_handler.py`: File system operations
-  - `vector_handler.py`: Text embeddings and similarity
-  - `graph_handler.py`: Neo4j graph database operations
-- **`manager.py`**: Central orchestration and routing
-- **`server.py`**: HTTP server implementations (aiohttp + Flask)
-- **`streamlit_app.py`**: Web-based chat interface
+- **`pure_mcp_server.py`**: Main MCP JSON-RPC server for Claude Desktop integration
+- **`simple_mcp_host.py`**: HTTP wrapper that exposes MCP tools via REST API
+- **`registry.py`**: Dynamic agent and tool registration system
+- **`run_mcp_server.py`**: Entry point script for Claude Desktop configuration
+- **`config.py`**: Environment-based configuration management
+- **`protocol.py`**: MCP protocol models and types
 
-### Request Routing
+### Agents
 
-- `nlu/*` → NLUAgent
-- `query/*` → QueryAgent  
-- `validate/*` → ValidationAgent
-- `compose/*` → CompositionAgent
+- **`agents/base.py`**: Base agent interface that all agents implement
+- **`agents/openai_agent.py`**: OpenAI API integration agent  
+- **`agents/ollama_agent.py`**: Local Ollama model integration agent
+- **`agents/file_agent.py`**: File system operations agent
+
+### User Interfaces
+
+- **`streamlit_app.py`**: Modern web UI for interactive tool usage
+- **Claude Desktop**: Direct MCP protocol integration
+
+### Agent Registration Flow
+
+```python
+# Each agent registers its tools dynamically
+class YourAgent(BaseAgent):
+    def get_tools(self) -> Dict[str, Any]:
+        return {
+            "your_tool": {
+                "description": "What your tool does",
+                "inputSchema": {...}
+            }
+        }
+    
+    async def handle_tool_call(self, tool_name: str, params: Dict[str, Any]) -> Any:
+        # Handle the tool call
+        pass
+
+# Registry automatically discovers and routes tools
+registry.register_agent("your_agent", YourAgent(config))
+```
 
 ## Development
 
@@ -171,21 +219,22 @@ curl -X POST http://localhost:8000/v1/chat/completions \
 
 ```
 mcp_server_full/
-├── agents/                 # Processing agents
-├── tools/                  # External tool handlers
-├── tests/                  # Test files
-├── diagrams/               # Architecture diagrams
-├── config.py              # Configuration management
-├── protocol.py            # MCP protocol models
-├── manager.py             # Agent orchestration
-├── server.py              # HTTP servers
-├── cli.py                 # Test client
-├── streamlit_app.py       # Web UI
-├── startup.py             # Server management
-├── test_functionality.py  # Basic functionality tests
-├── requirements.txt       # Dependencies
-├── DESIGN.md              # Detailed design document
-└── README.md              # This file
+├── agents/                    # Agent implementations
+│   ├── base.py               # Base agent interface
+│   ├── openai_agent.py       # OpenAI integration
+│   ├── ollama_agent.py       # Ollama integration
+│   └── file_agent.py         # File operations
+├── pure_mcp_server.py        # Main MCP server for Claude Desktop
+├── simple_mcp_host.py        # HTTP host for web interfaces
+├── registry.py               # Dynamic tool registration
+├── run_mcp_server.py         # Claude Desktop entry point
+├── streamlit_app.py          # Web UI
+├── config.py                 # Configuration management
+├── protocol.py               # MCP protocol models
+├── requirements.txt          # Dependencies
+├── .env                      # Environment variables (create this)
+├── ADDING_NEW_AGENTS.md      # Detailed agent development guide
+└── README.md                 # This file
 ```
 
 ### Adding New Agents
@@ -202,87 +251,165 @@ The guide includes complete code examples, best practices, and troubleshooting t
 
 ### Adding New Tools
 
-1. Create tool file in `tools/` inheriting from `MCPToolHandler`
-2. Implement the `run()` method
-3. Initialize in `manager.py`
-4. Add tests in `tests/tools/`
+To add new tools to existing agents:
+
+1. Edit the agent's `get_tools()` method to define new tool schema
+2. Add handler method in agent's `handle_tool_call()` method  
+3. Test the new tool functionality
+4. Update documentation
+
+Example:
+```python
+# In your agent
+def get_tools(self):
+    return {
+        "new_tool": {
+            "description": "Description of new tool",
+            "inputSchema": {
+                "type": "object", 
+                "properties": {
+                    "param": {"type": "string", "description": "Parameter description"}
+                },
+                "required": ["param"]
+            }
+        }
+    }
+
+async def handle_tool_call(self, tool_name: str, params: Dict[str, Any]) -> Any:
+    if tool_name == "new_tool":
+        return await self._handle_new_tool(params)
+```
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Import Errors**: Ensure virtual environment is activated and dependencies installed
-2. **Configuration Errors**: Check `.env` file format and environment variables
-3. **Port Conflicts**: Ensure ports 8000 and 9000 are available
-4. **Database Connection**: Verify Neo4j is running (optional component)
-5. **Model Loading**: Ensure sufficient disk space for sentence-transformer models
+1. **Agent Not Available**: Check API keys and service connectivity
+   ```bash
+   # Test agent registration
+   python test_quick.py
+   ```
+
+2. **Claude Desktop Not Connecting**: Verify config path and entry point
+   ```json
+   # Check claude_desktop_config.json
+   {
+     "mcpServers": {
+       "agentic-mcp": {
+         "command": "python",
+         "args": ["run_mcp_server.py"],
+         "cwd": "d:\\AI Lab\\MCP research\\mcp_server_full"
+       }
+     }
+   }
+   ```
+
+3. **Streamlit UI Issues**: Ensure HTTP host is running
+   ```bash
+   # Start HTTP host first
+   python simple_mcp_host.py
+   # Then start Streamlit  
+   streamlit run streamlit_app.py
+   ```
+
+4. **OpenAI Errors**: Check API key and quota
+   ```bash
+   # Test OpenAI directly
+   python openai_test.py
+   ```
+
+5. **Ollama Not Working**: Verify Ollama server is running
+   ```bash
+   # Check Ollama status
+   curl http://localhost:11434/api/tags
+   ```
 
 ### Debug Mode
 
+Enable detailed logging:
 ```bash
-python startup.py mcp --debug
+# Set environment variable
+export LOG_LEVEL=DEBUG
+python run_mcp_server.py
 ```
 
-### Health Check
+### Health Checks
 
 ```bash
+# Check HTTP API health
 curl http://localhost:8000/health
+
+# List registered tools
+curl http://localhost:8000/tools
+
+# Test tool call
+curl -X POST http://localhost:8000/tools/call \
+  -H "Content-Type: application/json" \
+  -d '{"tool_name": "file_list", "arguments": {"directory_path": "."}}'
 ```
 
 ## Dependencies
 
-### Runtime
-- aiohttp, flask: HTTP servers
-- pydantic, pydantic-settings: Data validation and configuration
-- sentence-transformers: Text embeddings
-- neo4j: Graph database client
-- aiofiles: Async file operations
-- streamlit: Web UI
+### Core Runtime
+- **pydantic**: Configuration and data validation
+- **asyncio**: Async operation support
+- **httpx**: HTTP client for external APIs
+- **aiofiles**: Async file operations
 
-### Development
-- pytest: Testing
-- flake8: Code linting
-- pre-commit: Git hooks
+### Agent-Specific
+- **openai**: OpenAI API client (for OpenAI agent)
+- **ollama**: Ollama API client (for Ollama agent)
+
+### Web Interface
+- **streamlit**: Modern web UI framework
+- **requests**: HTTP requests for Streamlit
+
+### Development & Testing
+- **pytest**: Testing framework
+- **logging**: Debug and monitoring
+
+All dependencies are automatically installed via `requirements.txt`.
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make changes with tests
-4. Run `pytest` and `flake8`
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Add your agent following the [agent development guide](ADDING_NEW_AGENTS.md)
+4. Test your changes: `python test_quick.py`
 5. Submit a pull request
+
+### Agent Development Workflow
+
+1. **Plan**: Define what tools your agent will provide
+2. **Implement**: Create agent class inheriting from `BaseAgent`
+3. **Register**: Add agent registration to both server files
+4. **Test**: Verify agent works in both MCP and HTTP modes
+5. **Document**: Update README and create usage examples
 
 ## License
 
-[Add your license here]
+MIT
 
 ## Streamlit Web Interface
 
-The enhanced Streamlit app provides a user-friendly web interface for interacting with the MCP server.
+The Streamlit app provides an intuitive web interface for all MCP tools.
 
 ### Features
 
-- **🔧 Server Integration**: Connects to running MCP/OpenAI servers via HTTP
-- **🏥 Health Monitoring**: Real-time server status checking
-- **💬 Chat Interface**: Interactive conversation with response history
-- **⚙️ Configuration**: Server type selection and URL customization
-- **🔄 Dual Protocol Support**: Switch between MCP JSON-RPC and OpenAI APIs
-- **📝 Smart Responses**: Enhance
-d composition agent with contextual replies
-- **🧹 Session Management**: Clear history and reset conversations
+- **🔧 Real-time Tool Discovery**: Automatically displays all available tools from registered agents
+- **💬 Interactive Interface**: Easy-to-use forms for tool parameters
+- **📊 Response Display**: Formatted display of tool results
+- **� Agent Status**: Real-time monitoring of agent availability
+- **⚙️ Configuration**: Environment-based setup with clear status indicators
 
 ### Usage
 
-1. **Start Services**: `python startup.py all`
-2. **Open Browser**: Navigate to http://localhost:8501
-3. **Check Status**: Use sidebar to verify server connectivity
-4. **Start Chatting**: Type messages and receive intelligent responses
+1. **Start the backend**: `python simple_mcp_host.py`
+2. **Launch Streamlit**: `streamlit run streamlit_app.py`
+3. **Open browser**: Navigate to http://localhost:8501
+4. **Select tools**: Choose from available agent tools
+5. **Execute**: Fill parameters and run tools interactively
 
-### Supported Message Types
+### Tool Integration
 
-- **Greetings**: "Hello", "Hi" → Welcome responses
-- **Help Requests**: "What can you do?" → Capability descriptions  
-- **Analysis**: "Analyze this" → NLU method recommendations
-- **Search**: "Find something" → Query method suggestions
-- **Validation**: "Check this" → Validation method info
-- **General Chat**: Any other message → Contextual responses
+The Streamlit UI automatically discovers and creates forms for any tools registered by agents, making it easy to test and use new functionality as agents are added.

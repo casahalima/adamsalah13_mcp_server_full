@@ -178,7 +178,7 @@ python pure_mcp_server.py
 pip install aiohttp aiohttp-cors
 
 # Run MCP host
-python mcp_host.py
+python simple_mcp_host.py
 ```
 
 **Available Endpoints:**
@@ -192,7 +192,7 @@ python mcp_host.py
 
 ```bash
 # Run the demonstration
-python demo_agentic_architecture.py
+python streamlit_app.py
 ```
 
 ## Creating New Agents

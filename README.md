@@ -3,7 +3,6 @@
 A pure implementation of the Model Context Protocol (MCP) following an agentic architecture where all features are exposed as MCP tools through specialized agents.
 
 ## Features
-
 - **🤖 Pure Agentic Architecture**: All capabilities (OpenAI, Ollama, File operations) are implemented as agents
 - **🔗 Dual Access Modes**: MCP protocol for Claude Desktop + HTTP endpoints for web/Streamlit UI
 - **⚡ Dynamic Tool Registry**: Agents register their tools automatically at startup
@@ -13,7 +12,6 @@ A pure implementation of the Model Context Protocol (MCP) following an agentic a
 - **🔑 Environment-Based Config**: Secure API key management via environment variables
 
 ## Architecture Overview
-
 The server implements a **pure agentic pattern** where:
 
 1. **Agents** encapsulate specific functionality (OpenAI API, Ollama, file operations)
@@ -31,12 +29,10 @@ Web Browser    ←→ HTTP API     ←→ Simple MCP Host  ←→ Agent Registry
 ## Quick Start
 
 ### Prerequisites
-
 - Python 3.11+
 - Virtual environment support
 
 ### Installation
-
 ```bash
 git clone <repo-url>
 cd mcp_server_full
@@ -54,7 +50,6 @@ pip install -r requirements.txt
 ```
 
 ### Configuration
-
 Create a `.env` file with your API keys (all optional):
 
 ```env
@@ -72,7 +67,6 @@ OLLAMA_MODEL=llama3.2
 ### Running the Server
 
 #### For Claude Desktop (MCP Protocol)
-
 ```bash
 # Start the pure MCP server for Claude Desktop
 python run_mcp_server.py
@@ -92,7 +86,6 @@ Add to your Claude Desktop config (`claude_desktop_config.json`):
 ```
 
 #### For Web Interface (HTTP + Streamlit)
-
 ```bash
 # Terminal 1: Start HTTP host for tools
 python simple_mcp_host.py
@@ -104,7 +97,6 @@ streamlit run streamlit_app.py
 Access the web interface at: http://localhost:8501
 
 ### Testing Your Setup
-
 ```bash
 # Test agent registration and tool availability
 python test_quick.py
